@@ -29,30 +29,31 @@ function App() {
       setReadingList(JSON.parse(savedList));
     }
   }, []);
-   // Save reading list whenever it changes
+   
+  // Save reading list whenever it changes
   useEffect(() => {
     localStorage.setItem("readingList", JSON.stringify(readingList));
   }, [readingList]);
 
   // ----- HANDLERS -----
 
-  const handleLike = (id) => {
-    setAuthors((prev) =>
-      prev.map((author) =>
-        author.id === id
-          ? { ...author, liked: !author.liked }
-          : author
-      )
-    );
-  };
+    const handleLike = (id) => {
+      setAuthors((prev) =>
+        prev.map((author) =>
+          author.id === id
+            ? { ...author, liked: !author.liked }
+            : author
+        )
+      );
+    };
     // --- FUNCTIONS ---
 
     // Add an author to the reading list
-  const addToReadingList = (author) => {
-    if (!readingList.find((item) => item.id === author.id)) {
-      setReadingList([...readingList, author]);
-    }
-  };
+    const addToReadingList = (author) => {
+      if (!readingList.find((item) => item.id === author.id)) {
+        setReadingList([...readingList, author]);
+      }
+    };
       // Remove an author from the reading list
     const removeFromReadingList = (id) => {
       setReadingList((prevList) =>
@@ -69,16 +70,16 @@ function App() {
  
 
     // ----- FILTER LOGIC -----
-  const filteredAuthors = authors.filter((author) => {
-  // 1. Check if the author matches the selected genre
-  const matchesGenre = selectedGenre === "All" || author.genre.includes(selectedGenre);
+    const filteredAuthors = authors.filter((author) => {
+    // Check if the author matches the selected genre
+    const matchesGenre = selectedGenre === "All" || author.genre.includes(selectedGenre);
 
-  // 2. Check if the author's name matches the search term
-  const matchesSearch = author.name.toLowerCase().includes(searchTerm.toLowerCase());
+    // Check if the author's name matches the search term
+    const matchesSearch = author.name.toLowerCase().includes(searchTerm.toLowerCase());
 
-  // Only return authors that meet BOTH criteria
-  return matchesGenre && matchesSearch;
-});
+    // Only return authors that meet BOTH criteria
+    return matchesGenre && matchesSearch;
+  });
 
   // ----- RENDER -----
 
@@ -119,7 +120,9 @@ function App() {
       </div>
 
       <div style={{ display: "flex", gap: "2rem" }}>
+        
         {/* LEFT SIDE */}
+
         <div style={{ flex: 2 }}>
           {/* Dynamic Genre Filter */}
             <div style={{ marginBottom: "1.5rem" }}>
@@ -152,6 +155,8 @@ function App() {
         </div>
 
         {/* RIGHT SIDE - Reading List */}
+        
+
         <div
           style={{
             flex: 1,

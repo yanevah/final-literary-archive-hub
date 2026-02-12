@@ -6,19 +6,18 @@ function AuthorCard({ author, onLike, onAddToReadingList }) {
 
   return (
     <div
-      // 3. Add these two event listeners to track the mouse
+      //  Two event listeners to track the mouse
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       
-      // 4. Merge your styles here
       style={{
         backgroundColor: "white",
         padding: "1.5rem",
         borderRadius: "12px",
         marginBottom: "1.5rem",
-        transition: "all 0.3s ease", // Smooths out the "lift"
+        transition: "all 0.3s ease", 
         
-        // DYNAMIC STYLES: These change based on the 'isHovered' state
+        // DYNAMIC STYLES:  Change based on the 'isHovered' state
         boxShadow: isHovered 
           ? "0 12px 24px rgba(0,0,0,0.15)" 
           : "0 4px 10px rgba(0,0,0,0.08)",
@@ -30,7 +29,7 @@ function AuthorCard({ author, onLike, onAddToReadingList }) {
     >
       <h3>{author.name}</h3>
       
-      {/* Line 1: Genre */}
+      {/* Genre */}
         <p style={{ margin: "0.5rem 0", fontWeight: "bold", color: "#555" }}>
           {author.genre.join(" · ")} 
         </p>
