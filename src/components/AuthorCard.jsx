@@ -30,12 +30,12 @@ function AuthorCard({ author, onLike, onAddToReadingList }) {
       <h3>{author.name}</h3>
       
       {/* Genre */}
-        <p style={{ margin: "0.5rem 0", fontWeight: "bold", color: "#555" }}>
+        <p style={{ margin: "0.5rem 0", fontWeight: "bold", color: "#3e2723" }}>
           {author.genre.join(" · ")} 
         </p>
 
       {/* Line 2: Books list */}
-      <p style={{ margin: "0.5rem 0", color: "#333" }}>
+      <p style={{ margin: "0.5rem 0", color: "#3e2723" }}>
         <strong>Books:</strong> {Array.isArray(author.books) ? author.books.join(", ") : author.books}
       </p>
 
@@ -61,7 +61,7 @@ function AuthorCard({ author, onLike, onAddToReadingList }) {
             padding: "6px 12px",
             borderRadius: "4px",
             border: "none",
-            backgroundColor: "#007BFF",
+            backgroundColor: "#2d6bad",
             color: "white"
           }}
         >

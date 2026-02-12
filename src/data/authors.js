@@ -71,7 +71,30 @@ const authors = [
     genre: "Non-Fiction, Science, Nature",
     books: ["The Genius of Birds, What an Owl Knows, The Bird Way"],
   },
-
+  {
+    id: 13,
+    name: "Seanan McGuire",
+    genre: "Fantasy, Sci-Fi",
+    books: ["Rosemary and Rue, Middlegame"],
+  },
+  {
+    id: 14,
+    name: "Kim Harrison",
+    genre: "Urban Fantasy",
+    books: ["Dead Witch Walking, First Contact, Three Kinds of Lucky"],
+  },
+  {
+    id: 15,
+    name: "Patricia Briggs",
+    genre: "Fantasy, Sci-Fi",
+    books: ["Moon Called, Cry Wolf"],
+  },
+  {
+    id: 16,
+    name: "Matt Dinniman",
+    genre: "Fantasy, Sci-Fi",
+    books: ["Dungeon Crawler Carl"],
+  },
 ];
 
 export default authors;

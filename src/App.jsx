@@ -3,6 +3,7 @@ import authorsData from "./data/authors";
 import AuthorList from "./components/AuthorList";
 import GenreFilter from "./components/GenreFilter";
 import ReadingList from "./components/ReadingList"; 
+import RequestForm from './components/RequestForm'; 
 
 function App() {
   // ----- STATE -----
@@ -31,6 +32,7 @@ function App() {
   }, []);
    
   // Save reading list whenever it changes
+
   useEffect(() => {
     localStorage.setItem("readingList", JSON.stringify(readingList));
   }, [readingList]);
@@ -54,7 +56,9 @@ function App() {
         setReadingList([...readingList, author]);
       }
     };
-      // Remove an author from the reading list
+    
+    // Remove an author from the reading list
+
     const removeFromReadingList = (id) => {
       setReadingList((prevList) =>
         prevList.filter((author) => author.id !== id)
@@ -65,7 +69,7 @@ function App() {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-  // ----- FILTER LOGIC -----
+
 
  
 
@@ -93,14 +97,22 @@ function App() {
         justifyContent: "center",
         alignItems: "center",
 
-        backgroundColor: "#f4f6f8",
+        backgroundColor: "#d6cbab",
         padding: "2rem",
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "'Merriweather', serif",
       }}
     >
-      <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
-        Literary Archive Hub
-      </h1>
+      <header style={{ 
+          backgroundColor: "#1a365d", 
+          color: "white", 
+          padding: "3rem 1rem", 
+          textAlign: "center",
+          borderRadius: "0 0 20px 20px",
+          marginBottom: "2rem"
+        }}>
+          <h1 style={{ fontSize: "2.5rem", margin: 0 }}>📚 Literary Archive Hub 📚</h1>
+          <p style={{ opacity: 0.8 }}>Discover Your Next Favourite Author</p>
+        </header>
 
       {/* Search Bar */}
       <div style={{ marginBottom: "1.5rem" }}>
@@ -126,7 +138,7 @@ function App() {
         <div style={{ flex: 2 }}>
           {/* Dynamic Genre Filter */}
             <div style={{ marginBottom: "1.5rem" }}>
-              {/* This line creates a unique list of all genres present in your data */}
+              {/* A unique list of all genres present in your data */}
               {["All", ...new Set(authors.flatMap(a => a.genre))].map((genre) => (
                 <button
                   key={genre}
@@ -138,8 +150,8 @@ function App() {
                     borderRadius: "20px",
                     border: "none",
                     cursor: "pointer",
-                    backgroundColor: selectedGenre === genre ? "#222" : "#ddd",
-                    color: selectedGenre === genre ? "white" : "black",
+                    backgroundColor: selectedGenre === genre ? "#3e2723" : "#fdf6e3",
+                    color: selectedGenre === genre ? "#fffcf5" : "#204222",
                   }}
                 >
                   {genre}
@@ -160,16 +172,19 @@ function App() {
         <div
           style={{
             flex: 1,
-            backgroundColor: "white",
+            backgroundColor: "#f7f2e6",
             padding: "2rem",
             borderRadius: "12px",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
+            position: "sticky", 
+            top: "20px",
+            height: "fit-content"
           }}
         >
           <h2>📚 Reading List</h2>
 
           {readingList.length === 0 ? (
-            <p style={{ color: "#666" }}>
+            <p style={{ color: "#3e2723" }}>
               No authors added yet.
             </p>
           ) : (
@@ -193,7 +208,7 @@ function App() {
                       padding: "4px 8px",
                       borderRadius: "6px",
                       border: "none",
-                      backgroundColor: "#ff4d4d",
+                      backgroundColor: "#a10e0e",
                       color: "white",
                       cursor: "pointer",
                     }}
@@ -206,6 +221,8 @@ function App() {
           )}
         </div>
       </div>
+      <hr style={{ margin: "3rem 0", border: "0", borderTop: "1px solid #ddd" }} />
+      <RequestForm />
     </div>
   );
 }
