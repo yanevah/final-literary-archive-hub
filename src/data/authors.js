@@ -95,6 +95,12 @@ const authors = [
     genre: "Fantasy, Sci-Fi",
     books: ["Dungeon Crawler Carl"],
   },
+  {
+    id: 16,
+    name: "Merlin Sheldrake",
+    genre: "Non-Fiction, Science, Nature",
+    books: ["Entangled Life"],
+  },
 ];
 
 export default authors;

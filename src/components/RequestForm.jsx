@@ -63,21 +63,21 @@ function RequestForm() {
           }}>
             Request
           </button>
-          {/* Error message styling inside RequestForm.jsx */}
+
               {error && (
                 <p style={{ 
-                  color: "#b71c1c", // A deeper, "brick" red that fits the vintage vibe
+                  color: "#b71c1c", 
                   fontSize: "0.9rem", 
                   marginTop: "12px",
                   fontStyle: "italic",
-                  backgroundColor: "#ffebee", // Soft red background to make it look like a real alert
+                  backgroundColor: "#ffebee", 
                   padding: "8px",
                   borderRadius: "4px",
                   display: "inline-block"
                 }}>
                   ⚠️ {error}
-  </p>
-)}
+            </p>
+          )}
         </form>
       )}
     </div>
